@@ -1,0 +1,16 @@
+﻿@model string[]
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Meus Favoritos:</h1>
+
+<ol>
+@{
+    @foreach(var repo in Model) 
+{
+    <a href="/Github/Descricao?repo=@repo"><li>Repositorio : @repo.Split('/')[1]</li></a>
+    <span>Owner: @repo.Split('/')[0]</span>
+}
+}
+</ol>

@@ -1,7 +1,16 @@
-﻿
+﻿@using Octokit
+@model IReadOnlyList<Repository>
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Repositórios de Leandro Santana ( id = leld21 )</h1>
-
+<ol>
+@{
+    @foreach(var repo in Model) 
+{
+        <a href="/Github/Descricao?repo=@repo.FullName"><li>Repositorio : @repo.Name </li></a>
+  
+}
+}
+</ol>

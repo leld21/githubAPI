@@ -1,0 +1,22 @@
+﻿@using Octokit
+@model Repository
+@{
+    ViewData["Title"] = "Descricao";
+}
+
+<h1>Descricao</h1>
+
+<ul>
+@{
+ <li>Nome : @Model.Name </li>
+ <br/>
+ <li>Descrição : @Model.Description </li> 
+ <br/>
+ <li>Linguagem : @Model.Language </li> 
+ <br/>
+ <li>Última data de Atualização : @Model.UpdatedAt </li>
+ <br/>
+ <li>Dono do Repositório : @Model.FullName.Split('/')[0] </li>
+ <br/>
+}
+</ul>

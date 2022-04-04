@@ -7,17 +7,28 @@ namespace githubAPI.Controllers
     public class MeusRepositoriosController : Controller
     {
 
-        static string texto;
+        static string? texto;
+        static IReadOnlyList<Repository>? model;
+        static Repository? repositorio;
+
         public async void Github()
         {
-            var client = new GitHubClient(new ProductHeaderValue("my-cool-app"));
-            var repos = await client.Repository.GetAllForCurrent();
-            
-        }   
+            try {
+                var client = new GitHubClient(new ProductHeaderValue("my-cool-app"));
+                var user = await client.User.Get("leld21");
+                var repos = await client.Repository.GetAllForUser("leld21");
+                model = repos;
+            } catch (Exception e) {
+
+            }
+
+        }
+ 
 
         public IActionResult Index()
         {
-            return View();
+            Github();
+            return View(model);
         }
     }
 }
