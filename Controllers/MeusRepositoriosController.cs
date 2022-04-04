@@ -6,29 +6,21 @@ namespace githubAPI.Controllers
 {
     public class MeusRepositoriosController : Controller
     {
-
-        static string? texto;
-        static IReadOnlyList<Repository>? model;
-        static Repository? repositorio;
-
-        public async void Github()
+        //essa função irá pegar um usuario do github( meu usuario ) e retornar uma
+        //lista de repositorios com todos os repositorios do usuario
+        public IReadOnlyList<Repository> Github()
         {
-            try {
                 var client = new GitHubClient(new ProductHeaderValue("my-cool-app"));
-                var user = await client.User.Get("leld21");
-                var repos = await client.Repository.GetAllForUser("leld21");
-                model = repos;
-            } catch (Exception e) {
-
-            }
+                var user = Task.Run(async () => await client.User.Get("leld21")).Result;
+                var repos = Task.Run(async () => await client.Repository.GetAllForUser("leld21")).Result;
+                return repos;
 
         }
- 
 
         public IActionResult Index()
         {
-            Github();
-            return View(model);
+
+            return View(Github());
         }
     }
 }

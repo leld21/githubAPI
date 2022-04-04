@@ -1,0 +1,18 @@
+﻿@using Octokit
+@model SearchRepositoryResult
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h1>Search Result</h1>
+
+<ol>
+@{
+    @foreach(var repo in Model.Items) 
+{
+        <li>Repositorio : <a href="/Github/Descricao?repo=@repo.FullName">@repo.FullName</a></li>
+  
+}
+}
+</ol>
+

@@ -1,4 +1,1 @@
 leld21/GithubAPI
-leld21/ExemploQuickSort
-leld21/ExemploPthread
-YtRocha/e-diaristas

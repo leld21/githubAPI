@@ -1,0 +1,17 @@
+﻿@using Octokit
+@model IReadOnlyList<RepositoryContributor>
+@{
+    ViewData["Title"] = "Contribuidores";
+}
+
+<h1>Contribuidores:</h1>
+
+<ul>
+@{
+    @foreach(var contri in Model) 
+{
+        <li>Nome : @contri.Login </li>
+  
+}
+}
+</ul>

@@ -4,7 +4,8 @@
     ViewData["Title"] = "Descricao";
 }
 
-<h1>Descricao</h1>
+<h1>Descrição:</h1>
+<br/>
 
 <ul>
 @{
@@ -18,5 +19,10 @@
  <br/>
  <li>Dono do Repositório : @Model.FullName.Split('/')[0] </li>
  <br/>
+ <li>Contribuidores : <a href="/Github/Contribuidores?repo=@Model.FullName">Clique aqui.</a> </li>
+ <br/>
 }
 </ul>
+<br/>
+
+<p><a href="/Favoritos/AdicionarFavorito?Repo=@Model.FullName">Adicionar aos Favoritos</a></p>

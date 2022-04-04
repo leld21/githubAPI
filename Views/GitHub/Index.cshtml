@@ -1,4 +1,5 @@
-﻿@model githubAPI.Models.GithubViewModel
+﻿@using Octokit
+@model githubAPI.Models.GithubViewModel
 @{
     ViewData["Title"] = "Index";
 }
@@ -7,11 +8,7 @@
 
 @using(Html.BeginForm())
 {
-    @Html.TextBoxFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Repo)
     <br />
     <input type="submit" value="Buscar Repositorio"/>
-}
-
-@{
-    <p>@ViewData["Message"]</p>;
 }
